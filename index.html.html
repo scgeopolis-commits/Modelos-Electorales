@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeoPolis – Modelos electorales por sección</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2F3A;--rasp:#A87A2F;--rose:#7FA3B0;--gold:#CDBB92;--pop:#E0386B;--paper:#F1F3F2;--bg:#F4F6F5;--fg:#17262E;--mut:#52646D;--line:#D8DFE0;--surf:#fff;--acc:#0F4C5C;--dot:#0F4C5C;--btn:#0F4C5C;--btnfg:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A20;--fg:#E8EEEF;--mut:#9DB0B6;--line:#233840;--surf:#112832;--acc:#78C3CF;--dot:#5B8D99;--btn:#1F7A8C;--rasp:#C9A053;--pop:#F0537F}}
+:root[data-theme="dark"]{--bg:#0C1A20;--fg:#E8EEEF;--mut:#9DB0B6;--line:#233840;--surf:#112832;--acc:#78C3CF;--dot:#5B8D99;--btn:#1F7A8C;--rasp:#C9A053;--pop:#F0537F}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 'Montserrat',system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.12;margin:0;letter-spacing:-.01em}
+h1,h2,h3{color:var(--acc)}a{color:var(--acc)} :focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+.w{max-width:1080px;margin:0 auto;padding:0 22px}
+.top{background:#0F2F3A}
+.top .w{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none}.logo svg{width:50px;height:50px;flex:none}.bar{width:2px;align-self:stretch;background:#F0537F}.wm b{display:block;font:700 32px/1 'Playfair Display',serif;color:#F4F2EC}.wm small{display:block;margin-top:7px;font:500 10.5px 'Montserrat',sans-serif;letter-spacing:.1em;color:#B9CFD3}
+.top nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;font-weight:500}
+.top nav a{color:#F4F2EC;text-decoration:none}.top nav a:hover{text-decoration:underline}
+.hero{padding:56px 0 40px}.hero .w{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,5.2vw,58px)}
+.hero p{font-size:18px;color:var(--mut);max-width:46ch;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--btn);color:var(--btnfg);padding:13px 22px;border:0;border-radius:3px;font:600 15px 'Montserrat',sans-serif;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--acc);border:1.5px solid var(--acc);margin-left:8px}
+.mosaic{display:grid;grid-template-columns:repeat(22,1fr);gap:6px}
+.mosaic i{background:var(--dot);border-radius:50%;aspect-ratio:1;opacity:0}
+.mosaic.on i{opacity:var(--o);transition:opacity .5s ease var(--d)}
+.cap{font-size:12.5px;color:var(--mut);margin-top:10px}
+.facts{border-block:1px solid var(--line);padding:26px 0}.facts .w{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.facts b{display:block;font:600 34px 'Playfair Display',serif;color:var(--acc)}.facts span{font-size:14px;color:var(--mut)}
+section{padding:60px 0}h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:12px}.lead{color:var(--mut);max-width:60ch;margin:0 0 28px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px;background:var(--surf)}
+th,td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--line);font-size:14.5px}
+th:first-child,td:first-child{text-align:left}th{font:600 17px 'Playfair Display',serif;border-bottom:2px solid var(--pop)}
+th small{display:block;font:400 12px 'Montserrat',sans-serif;color:var(--mut)}td.y{color:var(--rasp);font-weight:700}
+ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+ol li{counter-increment:s;border-top:3px solid var(--rasp);padding-top:14px}ol li::before{content:counter(s);font:600 26px 'Playfair Display',serif;color:var(--pop)}
+ol h3{font-size:19px;margin:4px 0 6px}ol p{margin:0;font-size:14.5px;color:var(--mut)}
+.pact{position:relative;overflow:hidden;background:#0F2F3A;color:#F4F2EC;border-top:2px solid #F0537F}.pact .w{max-width:760px}.pact p{font:400 clamp(21px,2.8vw,28px)/1.4 'Playfair Display',serif;margin:0}.pact small{display:block;margin-top:14px;opacity:.8;font-size:14px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--surf);border:1px solid var(--line);padding:24px;border-radius:4px}
+label{display:flex;flex-direction:column;gap:5px;font-size:13.5px;font-weight:500}.full{grid-column:1/-1}
+input,select,textarea{font:inherit;padding:10px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--fg)}
+.acts{display:flex;gap:10px;flex-wrap:wrap}#bm{background:#C92C5D;color:#fff}#bm:hover{background:#A92350}.msg{font-size:13px;color:var(--mut);min-height:1.2em}
+footer{background:#0F2F3A;color:#F4F2EC;padding:26px 0;font-size:14px;text-align:center}
+.cx{padding:34px 0 6px}.cx .w{display:grid;grid-template-columns:repeat(4,1fr)}.cx div{text-align:center;padding:4px 14px;border-left:1px solid var(--line)}.cx div:first-child{border-left:0}
+.cx svg{width:56px;height:56px;color:var(--acc);display:block;margin:0 auto 12px}.cx b{display:block;font:600 15px 'Montserrat',sans-serif;color:var(--acc)}.cx span{font-size:13px;color:var(--mut)}
+::selection{background:var(--pop);color:#fff}input:focus,select:focus,textarea:focus{border-color:var(--pop);outline:0}
+.orn{position:absolute;right:max(24px,calc(50% - 520px));top:50%;transform:translateY(-50%);width:150px;height:150px;color:var(--pop);opacity:.28}.pact .w{position:relative}
+@media(max-width:780px){.cx .w{grid-template-columns:1fr 1fr;row-gap:22px}.cx div:nth-child(3){border-left:0}.orn{width:90px;height:90px;opacity:.2}.hero .w{grid-template-columns:1fr}.facts .w{grid-template-columns:1fr 1fr}ol{grid-template-columns:1fr 1fr}form{grid-template-columns:1fr}.logo{display:flex;align-items:center;gap:16px;text-decoration:none}.logo svg{width:50px;height:50px;flex:none}.bar{width:2px;align-self:stretch;background:#F0537F}.wm b{display:block;font:700 32px/1 'Playfair Display',serif;color:#F4F2EC}.wm small{display:block;margin-top:7px;font:500 10.5px 'Montserrat',sans-serif;letter-spacing:.1em;color:#B9CFD3}}
+@media(prefers-reduced-motion:reduce){.mosaic i{transition:none!important}}
+</style></head><body>
+<header class="top"><div class="w"><a class="logo" href="#" aria-label="GeoPolis"><svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="5" cy="5" r="3.6" fill="#5FB0BF"/><circle cx="15" cy="5" r="3.6" fill="#5FB0BF"/><circle cx="25" cy="5" r="3.6" fill="#5FB0BF"/><circle cx="35" cy="5" r="3.6" fill="#5FB0BF"/><circle cx="45" cy="5" r="3.6" fill="#B9CFD3"/><circle cx="5" cy="15" r="3.6" fill="#5FB0BF"/><circle cx="15" cy="15" r="3.6" fill="#8FB0BE"/><circle cx="25" cy="15" r="3.6" fill="#5FB0BF"/><circle cx="35" cy="15" r="3.6" fill="#C9A053"/><circle cx="45" cy="15" r="3.6" fill="#B9CFD3"/><circle cx="5" cy="25" r="3.6" fill="#5FB0BF"/><circle cx="15" cy="25" r="3.6" fill="#5FB0BF"/><circle cx="25" cy="25" r="3.6" fill="#F0537F"/><circle cx="35" cy="25" r="3.6" fill="#5FB0BF"/><circle cx="45" cy="25" r="3.6" fill="#5FB0BF"/><circle cx="5" cy="35" r="3.6" fill="#B9CFD3"/><circle cx="15" cy="35" r="3.6" fill="#5FB0BF"/><circle cx="25" cy="35" r="3.6" fill="#5FB0BF"/><circle cx="35" cy="35" r="3.6" fill="#8FB0BE"/><circle cx="45" cy="35" r="3.6" fill="#5FB0BF"/><circle cx="5" cy="45" r="3.6" fill="#5FB0BF"/><circle cx="15" cy="45" r="3.6" fill="#5FB0BF"/><circle cx="25" cy="45" r="3.6" fill="#5FB0BF"/><circle cx="35" cy="45" r="3.6" fill="#B9CFD3"/><circle cx="45" cy="45" r="3.6" fill="#F0537F"/></svg><span class="bar"></span><span class="wm"><b>GeoPolis</b><small>Data Science U Science Po</small></span></a><nav><a href="#niveles">Niveles de servicio</a><a href="#metodo">Método</a><a href="#consulta">Consulta</a></nav></div></header>
+<main>
+<div class="hero"><div class="w"><div>
+<h1>Dónde está el voto, sección por sección.</h1>
+<p>Modelos predictivos del comportamiento electoral para distritos y municipios, con la incertidumbre a la vista para que tu campaña decida dónde invertir su operación.</p>
+<a class="btn" href="#consulta">Solicitar una consulta</a><a class="btn alt" href="#niveles">Ver qué incluye</a></div>
+<div><div class="mosaic" id="m" role="img" aria-label="Mosaico ilustrativo de secciones electorales con distinta intensidad de voto"></div><p class="cap">Cada celda representa una sección electoral. Ilustración.</p></div></div></div>
+<div class="facts"><div class="w"><div><b>32</b><span>entidades</span></div><div><b>300</b><span>distritos federales</span></div><div><b>2,477</b><span>municipios</span></div><div><b>73,264</b><span>secciones electorales</span></div></div></div>
+<div class="cx"><div class="w"><div><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="14" cy="14" r="2.8" fill="currentColor"/><circle cx="26" cy="14" r="2.8" fill="currentColor"/><circle cx="38" cy="14" r="2.8" fill="currentColor"/><circle cx="50" cy="14" r="2.8" fill="currentColor"/><circle cx="14" cy="26" r="2.8" fill="currentColor"/><circle cx="26" cy="26" r="2.8" fill="currentColor"/><circle cx="38" cy="26" r="2.8" fill="var(--pop)"/><circle cx="50" cy="26" r="2.8" fill="currentColor"/><circle cx="14" cy="38" r="2.8" fill="currentColor"/><circle cx="26" cy="38" r="2.8" fill="currentColor"/><circle cx="38" cy="38" r="2.8" fill="currentColor"/><circle cx="50" cy="38" r="2.8" fill="currentColor"/><circle cx="14" cy="50" r="2.8" fill="currentColor"/><circle cx="26" cy="50" r="2.8" fill="currentColor"/><circle cx="38" cy="50" r="2.8" fill="currentColor"/><circle cx="50" cy="50" r="2.8" fill="currentColor"/></svg><b>Datos</b><span>puntos de información</span></div><div><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" fill="none"><path d="M12 40L24 22L36 34L48 18M36 34L54 34M12 40L30 52L36 34M30 52L46 48L54 34"/></g><circle cx="12" cy="40" r="3.2" fill="currentColor"/><circle cx="24" cy="22" r="3.2" fill="currentColor"/><circle cx="36" cy="34" r="3.2" fill="var(--pop)"/><circle cx="48" cy="18" r="3.2" fill="currentColor"/><circle cx="54" cy="34" r="3.2" fill="currentColor"/><circle cx="30" cy="52" r="3.2" fill="currentColor"/><circle cx="46" cy="48" r="3.2" fill="currentColor"/></svg><b>Territorio</b><span>distribución espacial</span></div><div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 46L20 35L30 41L44 27L56 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="46" r="3.4" fill="currentColor"/><circle cx="20" cy="35" r="3.4" fill="currentColor"/><circle cx="30" cy="41" r="3.4" fill="currentColor"/><circle cx="44" cy="27" r="3.4" fill="currentColor"/><circle cx="56" cy="17" r="3.4" fill="var(--pop)"/></svg><b>Análisis</b><span>patrones y tendencias</span></div><div><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="32" cy="32" r="4" fill="var(--pop)"/></svg><b>Estrategia</b><span>decisiones informadas</span></div></div></div>
+<section id="niveles"><div class="w"><h2>Tres niveles, según lo que necesites decidir</h2><p class="lead">Empieza por el diagnóstico o pasa directo a la proyección. Cada nivel incluye al anterior.</p>
+<div class="tw"><table><thead><tr><th></th><th>Diagnóstico<small>entender el territorio</small></th><th>Proyección<small>anticipar el voto</small></th><th>Proyección + operación<small>decidir dónde actuar</small></th></tr></thead><tbody>
+<tr><td>Historial y volatilidad por sección</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+<tr><td>Clasificación de secciones y cambios de preferencia</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+<tr><td>Proyección de voto con intervalos de incertidumbre</td><td></td><td class="y">✓</td><td class="y">✓</td></tr>
+<tr><td>Escenarios de participación y competencia</td><td></td><td class="y">✓</td><td class="y">✓</td></tr>
+<tr><td>Calibración con tu encuesta</td><td></td><td></td><td class="y">✓</td></tr>
+<tr><td>Priorización territorial de la operación</td><td></td><td></td><td class="y">✓</td></tr>
+<tr><td>Actualizaciones durante la campaña</td><td>opcional</td><td>opcional</td><td>opcional</td></tr></tbody></table></div></div></section>
+<section id="metodo" style="padding-top:0"><div class="w"><h2>Cómo trabajamos</h2><p class="lead">Un proceso en cuatro pasos, documentado de principio a fin.</p>
+<ol><li><h3>Integrar</h3><p>Cómputos por casilla, cartografía, lista nominal, censo y encuestas, homologados a la sección.</p></li><li><h3>Modelar</h3><p>Estimamos el comportamiento de cada sección a partir de sus elecciones comparables.</p></li><li><h3>Validar</h3><p>Probamos el modelo contra elecciones pasadas y documentamos su error esperado.</p></li><li><h3>Entregar</h3><p>Tablas, mapas y un reporte ejecutivo listos para usar en la operación.</p></li></ol></div></section>
+<section class="pact"><svg class="orn" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="32" cy="32" r="12" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="32" cy="32" r="3.5" fill="currentColor"/></svg><div class="w"><p>Te entregamos un modelo con su margen de error documentado, no una promesa sobre el resultado de la elección.</p><small>Trabajamos con datos públicos y tus propias encuestas; nada se vende ni se comparte entre clientes.</small></div></section>
+<section id="consulta"><div class="w"><h2>Cuéntanos tu proyecto</h2><p class="lead">Con estos datos preparamos una propuesta. Usaremos estos datos solo para responder tu consulta.</p>
+<form id="f" onsubmit="return false">
+<label>Nombre<input id="n" autocomplete="name"></label><label>Organización o campaña<input id="o"></label>
+<label>Tipo de proyecto<select id="t"><option>Distrito</option><option>Municipio</option><option>Varios distritos o municipios</option></select></label>
+<label>Estado<input id="e"></label><label>Municipio o distrito<input id="mu" placeholder="Si es distrito, escribe su número"></label>
+<label>Nivel de interés<select id="l"><option>Aún no lo sé</option><option>Diagnóstico</option><option>Proyección</option><option>Proyección + operación</option></select></label>
+<label>Fecha de la elección<input id="d" placeholder="Ej. junio de 2027"></label><label>Correo o teléfono de contacto<input id="c" autocomplete="email"></label>
+<label class="full">¿Qué necesitas decidir?<textarea id="q" rows="3"></textarea></label>
+<div class="full acts"><button class="btn" id="bm">Enviar consulta</button><button class="btn alt" id="bw">Enviar por WhatsApp</button></div><p class="full msg" id="ms"></p></form></div></section>
+</main>
+<footer>GeoPolis · Data Science U Science Po · <span id="ct"></span></footer>
+<script>
+const EMAIL='sc.geopolis@gmail.com', WHATSAPP='52XXXXXXXXXX', ENDPOINT=''; // ENDPOINT: URL de tu Apps Script para guardar registros en Google Sheets; // Para activar WhatsApp, reemplaza las X por tu número
+document.getElementById('ct').textContent=EMAIL;if(/X/.test(WHATSAPP))document.getElementById('bw').style.display='none';
+(function(){const m=document.getElementById('m');let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+const C=22,R=15;for(let y=0;y<R;y++)for(let x=0;x<C;x++){const v=.5+.28*Math.sin(x/3.1+1)+.22*Math.cos(y/2.4)+(r()-.5)*.45;
+const i=document.createElement('i');i.style.setProperty('--o',Math.max(.08,Math.min(.75,v*.8)).toFixed(2));i.style.setProperty('--d',((x+y)*28)+'ms');
+if(r()>.965){const q=['var(--rasp)','var(--pop)','var(--rose)','var(--gold)'];i.style.background=q[Math.floor(r()*4)];i.style.setProperty('--o','1')}m.appendChild(i)}
+requestAnimationFrame(()=>requestAnimationFrame(()=>m.classList.add('on')))})();
+function txt(){const g=i=>document.getElementById(i).value.trim()||'—';
+return `Hola, quiero una consulta con GeoPolis.\nNombre: ${g('n')}\nOrganización: ${g('o')}\nContacto: ${g('c')}\nProyecto: ${g('t')} – ${g('e')}, ${g('mu')}\nNivel de interés: ${g('l')}\nFecha de elección: ${g('d')}\nNecesito decidir: ${g('q')}`}
+function ok(){const v=i=>document.getElementById(i).value.trim();const good=v('n')&&v('c');document.getElementById('ms').textContent=good?'':'Escribe tu nombre y un correo o teléfono para poder responderte.';return !!good}
+document.getElementById('bm').onclick=async()=>{if(!ok())return;const mail=()=>{location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Consulta GeoPolis')+'&body='+encodeURIComponent(txt())};if(!ENDPOINT){mail();return}
+const ids={n:'nombre',o:'organizacion',c:'contacto',t:'tipo',e:'estado',mu:'municipio',l:'nivel',d:'fecha_eleccion',q:'necesidad'};const p=new URLSearchParams({fecha:new Date().toISOString()});for(const k in ids)p.set(ids[k],document.getElementById(k).value.trim());
+const b=document.getElementById('bm'),ms=document.getElementById('ms');b.disabled=true;
+try{await fetch(ENDPOINT,{method:'POST',mode:'no-cors',body:p});ms.textContent='Gracias, recibimos tu consulta. Te responderemos pronto.';document.getElementById('f').reset()}catch(e){ms.textContent='No pudimos enviar el formulario. Se abrirá tu correo para que lo mandes desde ahí.';mail()}
+b.disabled=false};
+document.getElementById('bw').onclick=()=>{if(ok())window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(txt()),'_blank','noopener')};
+</script></body></html>
