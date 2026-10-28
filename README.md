@@ -1,2 +1,2 @@
-# Modelos-Electorales
+# Electoral Models
 Prospects
